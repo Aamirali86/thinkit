@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Movie: Decodable {
+struct Movie: Decodable, Identifiable {
+    let id: UUID = UUID()
     let title: String
     let episodeId: Int
     let openingCrawl: String

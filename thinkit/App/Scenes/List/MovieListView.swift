@@ -14,11 +14,20 @@ struct MovieListView: View {
 
     init(with viewModel: MovieListViewModel) {
         self.viewModel = viewModel
+        viewModel.fetchMovies()
     }
 
     var body: some View {
-        List {
-
+        NavigationView {
+            List {
+                MovieListHeaderView()
+                    .listRowInsets(.init())
+                ForEach(viewModel.movies, id: \.id) { movie in
+                    
+                }
+            }
+            .listRowInsets(.init())
+            .navigationBarTitle("Think-it Star Wars", displayMode: .inline)
         }
     }
 }
