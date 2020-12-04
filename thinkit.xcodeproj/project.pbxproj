@@ -12,7 +12,6 @@
 		2930C1F8257A23D300C76CB0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2930C1F5257A23D300C76CB0 /* NetworkManager.swift */; };
 		29C45F1725758E220052F5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C45F1625758E220052F5D6 /* AppDelegate.swift */; };
 		29C45F1925758E220052F5D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C45F1825758E220052F5D6 /* SceneDelegate.swift */; };
-		29C45F1B25758E220052F5D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C45F1A25758E220052F5D6 /* ContentView.swift */; };
 		29C45F1D25758E240052F5D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29C45F1C25758E240052F5D6 /* Assets.xcassets */; };
 		29C45F2025758E240052F5D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29C45F1F25758E240052F5D6 /* Preview Assets.xcassets */; };
 		29C45F2325758E240052F5D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C45F2125758E240052F5D6 /* LaunchScreen.storyboard */; };
@@ -36,7 +35,6 @@
 		29C45F1325758E220052F5D6 /* thinkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thinkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C45F1625758E220052F5D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C45F1825758E220052F5D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		29C45F1A25758E220052F5D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		29C45F1C25758E240052F5D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29C45F1F25758E240052F5D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		29C45F2225758E240052F5D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,6 +97,8 @@
 		2930C1EB257A1C9600C76CB0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2930C1FA257A403D00C76CB0 /* Detail */,
+				2930C1F9257A403500C76CB0 /* List */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -144,6 +144,20 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		2930C1F9257A403500C76CB0 /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		2930C1FA257A403D00C76CB0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		29C45F0A25758E210052F5D6 = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				2930C1E8257A1BCF00C76CB0 /* App */,
-				29C45F1A25758E220052F5D6 /* ContentView.swift */,
 			);
 			path = thinkit;
 			sourceTree = "<group>";
@@ -293,7 +306,6 @@
 				29C45F1725758E220052F5D6 /* AppDelegate.swift in Sources */,
 				2930C1F6257A23D300C76CB0 /* EndpointProvider.swift in Sources */,
 				29C45F1925758E220052F5D6 /* SceneDelegate.swift in Sources */,
-				29C45F1B25758E220052F5D6 /* ContentView.swift in Sources */,
 				2930C1F7257A23D300C76CB0 /* NetworkRequestErrorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
