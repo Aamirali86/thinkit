@@ -10,24 +10,17 @@ import SwiftUI
 
 struct MovieListHeaderView: View {
     var body: some View {
-
-        GeometryReader { reader in
-            VStack(alignment: .leading) {
-                HStack(alignment: .center) {
-                    Spacer()
-                    Image("ic-star-wars")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: reader.size.width * 0.35)
-                    Spacer()
-                }
+        VStack {
+            Image("ic-star-wars")
+            HStack {
                 Text("Total 6 Movies")
                     .foregroundColor(Color("lightGray"))
                     .multilineTextAlignment(.leading)
+                    .padding([.leading], 8)
+                Spacer()
             }
-            .frame(width: reader.size.width)
-            .background(Color("DarkBackground"))
         }
+        .background(Color("DarkBackground"))
     }
 }
 
