@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct MovieListView: View {
-
     @ObservedObject private var viewModel: MovieListViewModel
 
     init(with viewModel: MovieListViewModel) {
@@ -22,11 +21,11 @@ struct MovieListView: View {
             List {
                 MovieListHeaderView()
                     .listRowInsets(.init())
-                ForEach(viewModel.movies, id: \.id) { movie in
-                    
+                ForEach(0..<5) { _ in
+                    MovieListItemView()
+                        .listRowInsets(.init())
                 }
             }
-            .listRowInsets(.init())
             .navigationBarTitle("Think-it Star Wars", displayMode: .inline)
         }
     }
