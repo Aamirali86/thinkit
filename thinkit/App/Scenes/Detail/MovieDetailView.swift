@@ -20,37 +20,42 @@ struct MovieDetailView: View {
     //MARK:- Properties
     
     var body: some View {
-        VStack(spacing: 20) {
-            MovieDetailHeaderView(movie: movie)
-            HStack {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Opening Crawl")
-                    Text(movie.openingCrawl)
+        ScrollView {
+            VStack(spacing: 20) {
+                MovieDetailHeaderView(movie: movie)
+                HStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Opening Crawl")
+                        Text(movie.openingCrawl)
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-            .padding([.leading, .trailing], 10)
-            
-            HStack(spacing: 24) {
-                VStack(alignment: .leading) {
-                    Text("Created")
-                    Text(movie.created)
+                .padding([.leading, .trailing], 10)
+                
+                HStack(spacing: 24) {
+                    VStack(alignment: .leading) {
+                        Text("Created")
+                        Text(movie.created)
+                    }
+                    VStack(alignment: .leading) {
+                        Text("Edited")
+                        Text(movie.edited)
+                    }
+                    Spacer()
                 }
-                VStack(alignment: .leading) {
-                    Text("Edited")
-                    Text(movie.edited)
-                }
-                Spacer()
-            }
-            .padding([.leading, .trailing], 10)
+                .padding([.leading, .trailing], 10)
 
-            Spacer()
+                Spacer()
+            }
+            .navigationBarTitle(Text(movie.title), displayMode: .inline)
         }
     }
 }
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView(movie: Movie.mock)
+        NavigationView {
+            MovieDetailView(movie: Movie.mock)
+        }
     }
 }
