@@ -19,8 +19,10 @@ extension MovieProvider {
 extension Movie {
     static var mock = Movie(title: "A new hope",
                             episodeId: 1,
-                            openingCrawl: "",
+                            openingCrawl: "It is a period of civil war. Rebel spaceships, striking  nfrom a hidden base, have won ntheir first victory against...",
                             director: "George Lucas",
                             producer: "Gary kurts",
-                            releaseDate: "1077/25/05")
+                            releaseDate: "1077/25/05",
+                            created: "2014/2/12",
+                            edited: "2017/1/28")
 }
