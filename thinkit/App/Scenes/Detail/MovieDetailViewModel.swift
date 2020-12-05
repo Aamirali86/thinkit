@@ -15,6 +15,8 @@ protocol MovieDetailViewModelType {
 }
 
 class MovieDetailViewModel: MovieDetailViewModelType {
+    //MARK:- Properties
+    
     var movie: Movie
     private let inputFormatter: DateFormatter
     private let outputFormatter: DateFormatter
@@ -34,7 +36,7 @@ class MovieDetailViewModel: MovieDetailViewModelType {
     init(movie: Movie) {
         self.movie = movie
         inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm.ssZ"
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"
         inputFormatter.locale = Locale.current
         inputFormatter.timeZone = TimeZone.current
         
