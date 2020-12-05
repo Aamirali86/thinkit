@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// Builder class for movie list view
 struct MovieListBuilder {
     func makeView() -> some View {
         let service = MovieProvider()

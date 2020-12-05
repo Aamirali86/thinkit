@@ -15,14 +15,20 @@ protocol MovieListViewModelType: ObservableObject {
 }
 
 final class MovieListViewModel: MovieListViewModelType {
+    //MARK:- Properties
+    
     @Published var movies: [Movie] = []
     private var subscriptions = Set<AnyCancellable>()
     private let service: MovieProviderType
+    
+    //MARK:- Init
 
     init(service: MovieProviderType) {
         self.service = service
         fetchMovies()
     }
+    
+    //MARK:- Functions
 
     func fetchMovies() {
         service.fetchMovies()
@@ -32,12 +38,8 @@ final class MovieListViewModel: MovieListViewModelType {
                     print(error.localizedDescription)
                 }
             }, receiveValue: { [weak self] response in
-                self?.processResponse(response: response)
+                self?.movies = response.results
             })
             .store(in: &subscriptions)
-    }
-
-    private func processResponse(response: MovieResponse) {
-        movies = response.results
     }
 }

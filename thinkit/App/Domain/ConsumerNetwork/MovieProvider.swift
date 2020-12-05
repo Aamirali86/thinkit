@@ -10,16 +10,24 @@ import Foundation
 import Combine
 
 protocol MovieProviderType {
+    /// Fetch currently available movies
     func fetchMovies() -> AnyPublisher<MovieResponse, NetworkRequestError>
 }
 
+////// A class encapsulating logic to provide content for movies
 class MovieProvider: MovieProviderType {
+    //MARK:- Properties
+    
     typealias ResponseType = MovieResponse
     private let movieAPI: MovieAPI
+    
+    //MARK:- Init
     
     init(movieAPI: MovieAPI = NetworkManager.getSharedInstance()) {
         self.movieAPI = movieAPI
     }
+    
+    //MARK:- Functions
 
     func fetchMovies() -> AnyPublisher<ResponseType, NetworkRequestError> {
         movieAPI
@@ -36,6 +44,7 @@ class MovieProvider: MovieProviderType {
     }
 }
 
+/// A type representing Movies required network data access
 protocol MovieAPI {
     func requestMovies() -> AnyPublisher<Data, NetworkRequestError>
 }

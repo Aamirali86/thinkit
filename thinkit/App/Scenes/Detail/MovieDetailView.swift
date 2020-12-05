@@ -11,9 +11,13 @@ import SwiftUI
 struct MovieDetailView: View {
     private let movie: Movie
     
+    //MARK:- Init
+    
     init(movie: Movie) {
         self.movie = movie
     }
+    
+    //MARK:- Properties
     
     var body: some View {
         VStack(spacing: 20) {

@@ -11,10 +11,14 @@ import SwiftUI
 struct MovieListView<Model: MovieListViewModelType>: View {
     @ObservedObject private var viewModel: Model
 
+    //MARK:- Init
+    
     init(with viewModel: Model) {
         self.viewModel = viewModel
     }
 
+    //MARK:- Properties
+    
     var body: some View {
         NavigationView {
             List {
