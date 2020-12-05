@@ -11,6 +11,7 @@ import SwiftUI
 /// Builder class for movie detail view
 struct MovieDetailBuilder {
     func makeView(with movie: Movie) -> some View {
-        return MovieDetailView(movie: movie)
+        let viewModel = MovieDetailViewModel(movie: movie)
+        return MovieDetailView(viewModel: viewModel)
     }
 }

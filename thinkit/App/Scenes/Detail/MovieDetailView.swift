@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    private let movie: Movie
+    private let viewModel: MovieDetailViewModelType
     
     //MARK:- Init
     
-    init(movie: Movie) {
-        self.movie = movie
+    init(viewModel: MovieDetailViewModelType) {
+        self.viewModel = viewModel
     }
     
     //MARK:- Properties
@@ -22,11 +22,11 @@ struct MovieDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                MovieDetailHeaderView(movie: movie)
+                MovieDetailHeaderView(movie: viewModel.movie)
                 HStack {
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Opening Crawl")
-                        Text(movie.openingCrawl)
+                        Text(viewModel.movie.openingCrawl)
                     }
                     Spacer()
                 }
@@ -35,11 +35,11 @@ struct MovieDetailView: View {
                 HStack(spacing: 24) {
                     VStack(alignment: .leading) {
                         Text("Created")
-                        Text(movie.created)
+                        Text(viewModel.created ?? "")
                     }
                     VStack(alignment: .leading) {
                         Text("Edited")
-                        Text(movie.edited)
+                        Text(viewModel.edited ?? "")
                     }
                     Spacer()
                 }
@@ -47,7 +47,7 @@ struct MovieDetailView: View {
 
                 Spacer()
             }
-            .navigationBarTitle(Text(movie.title), displayMode: .inline)
+            .navigationBarTitle(Text(viewModel.movie.title), displayMode: .inline)
         }
     }
 }
@@ -55,7 +55,7 @@ struct MovieDetailView: View {
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            MovieDetailView(movie: Movie.mock)
+            MovieDetailView(viewModel: MovieDetailViewModel.mock)
         }
     }
 }

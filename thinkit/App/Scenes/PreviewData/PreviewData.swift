@@ -16,6 +16,10 @@ extension MovieProvider {
     static var mock = MovieProvider()
 }
 
+extension MovieDetailViewModel {
+    static var mock = MovieDetailViewModel(movie: Movie.mock)
+}
+
 extension Movie {
     static var mock = Movie(title: "A new hope",
                             episodeId: 1,
