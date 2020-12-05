@@ -9,9 +9,18 @@
 import Foundation
 
 extension MovieListViewModel {
-    static var mock = MovieListViewModel(service: MovieService.mock)
+    static var mock = MovieListViewModel(service: MovieProvider.mock)
 }
 
-extension MovieService {
-    static var mock = MovieService()
+extension MovieProvider {
+    static var mock = MovieProvider()
+}
+
+extension Movie {
+    static var mock = Movie(title: "A new hope",
+                            episodeId: 1,
+                            openingCrawl: "",
+                            director: "George Lucas",
+                            producer: "Gary kurts",
+                            releaseDate: "1077/25/05")
 }

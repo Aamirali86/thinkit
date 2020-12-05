@@ -8,12 +8,11 @@
 
 import SwiftUI
 
-struct MovieListView: View {
-    @ObservedObject private var viewModel: MovieListViewModel
+struct MovieListView<Model: MovieListViewModelType>: View {
+    @ObservedObject private var viewModel: Model
 
-    init(with viewModel: MovieListViewModel) {
+    init(with viewModel: Model) {
         self.viewModel = viewModel
-        viewModel.fetchMovies()
     }
 
     var body: some View {
@@ -21,8 +20,8 @@ struct MovieListView: View {
             List {
                 MovieListHeaderView()
                     .listRowInsets(.init())
-                ForEach(0..<5) { _ in
-                    MovieListItemView()
+                ForEach(viewModel.movies, id: \.id) { movie in
+                    MovieListItemView(with: movie)
                         .listRowInsets(.init())
                 }
             }
@@ -33,6 +32,6 @@ struct MovieListView: View {
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(with: .mock)
+        MovieListView(with: MovieListViewModel.mock)
     }
 }

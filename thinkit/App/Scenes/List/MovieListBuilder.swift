@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MovieListBuilder {
     func makeView() -> some View {
-        let service = MovieService()
+        let service = MovieProvider()
         let viewModel = MovieListViewModel(service: service)
         let view = MovieListView(with: viewModel)
         return view

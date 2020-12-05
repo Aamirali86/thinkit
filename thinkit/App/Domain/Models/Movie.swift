@@ -29,5 +29,5 @@ struct MovieResponse: Decodable {
     let count: Int
     let next: Int?
     let previous: Int?
-    let result: [Movie]
+    let results: [Movie]
 }

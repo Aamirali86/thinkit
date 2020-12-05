@@ -6,17 +6,12 @@
 import Foundation
 import Combine
 
-protocol NetworkManagerType {
-    func execute(request: EndPointProvider) -> AnyPublisher<Data, NetworkRequestError>
-}
-
-final class NetworkManager: NetworkManagerType {
-
+final class NetworkManager {
     private static var sharedInstance: NetworkManager?
 
     private var urlSession: URLSession
 
-    static func getSharedInstance(with urlSession: URLSession = URLSession(configuration: .default)) -> NetworkManagerType {
+    static func getSharedInstance(with urlSession: URLSession = URLSession(configuration: .default)) -> NetworkManager {
         return sharedInstance ?? self.init(with: urlSession)
     }
 

@@ -6,24 +6,27 @@
 //  Copyright © 2020 Thinkit. All rights reserved.
 //
 
+import Foundation
 import Combine
 
-protocol MovieListViewModelType {
+protocol MovieListViewModelType: ObservableObject {
+    var movies: [Movie] { get set }
     func fetchMovies()
 }
 
-final class MovieListViewModel: ObservableObject {
-    //TODO: All strings need to be changes to actual type
+final class MovieListViewModel: MovieListViewModelType {
     @Published var movies: [Movie] = []
     private var subscriptions = Set<AnyCancellable>()
-    private let service: MovieServiceType
+    private let service: MovieProviderType
 
-    init(service: MovieServiceType) {
+    init(service: MovieProviderType) {
         self.service = service
+        fetchMovies()
     }
 
     func fetchMovies() {
         service.fetchMovies()
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case let .failure(error) = completion {
                     print(error.localizedDescription)
@@ -35,6 +38,6 @@ final class MovieListViewModel: ObservableObject {
     }
 
     private func processResponse(response: MovieResponse) {
-        movies = response.result
+        movies = response.results
     }
 }

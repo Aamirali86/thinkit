@@ -9,38 +9,44 @@
 import SwiftUI
 
 struct MovieListItemView: View {
+    private var movie: Movie
+    
+    init(with movie: Movie) {
+        self.movie = movie
+    }
+    
     var body: some View {
         VStack(spacing: 12) {
             HStack {
-                Text("A new hope")
+                Text(movie.title)
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .foregroundColor(Color("lightGray"))
                 Spacer()
                 VStack(alignment: .leading) {
-                    Text("Release data")
+                    Text("Release date")
                         .foregroundColor(Color("lightGray"))
-                    Text("1977/05/25")
+                    Text(movie.releaseDate)
                         .foregroundColor(Color("lightGray"))
                 }
             }
             HStack(spacing: 16) {
                 VStack(alignment: .leading) {
-                    Text("Release data")
+                    Text("Director")
                         .foregroundColor(Color("lightGray"))
-                    Text("1977/05/25")
+                    Text(movie.director)
                         .foregroundColor(Color("lightGray"))
                 }
                 VStack(alignment: .leading) {
-                    Text("Release data")
+                    Text("Producer")
                         .foregroundColor(Color("lightGray"))
-                    Text("1977/05/25")
+                    Text(movie.producer)
                         .foregroundColor(Color("lightGray"))
                 }
                 Spacer()
             }
             HStack {
-                Text("It is a period of civil war. Rebel spaceships, striking  nfrom a hidden base, have won ntheir first victory against...")
+                Text(movie.openingCrawl)
                     .foregroundColor(Color("lightGray"))
                 Spacer()
             }
@@ -52,6 +58,6 @@ struct MovieListItemView: View {
 
 struct MovieListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListItemView()
+        MovieListItemView(with: .mock)
     }
 }
