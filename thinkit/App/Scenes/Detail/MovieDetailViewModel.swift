@@ -14,7 +14,7 @@ protocol MovieDetailViewModelType {
     var movie: Movie { get set }
 }
 
-class MovieDetailViewModel: MovieDetailViewModelType {
+final class MovieDetailViewModel: MovieDetailViewModelType {
     //MARK:- Properties
     
     var movie: Movie

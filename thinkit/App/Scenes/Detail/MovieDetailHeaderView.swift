@@ -30,22 +30,13 @@ struct MovieDetailHeaderView: View {
             }
             HStack(spacing: 16) {
                 VStack(alignment: .leading) {
-                    Text("Release date")
-                        .foregroundColor(Color("lightGray"))
-                    Text(movie.releaseDate)
-                        .foregroundColor(Color("lightGray"))
+                    TitleDetailView(title: "Release date", detail: movie.releaseDate)
                 }
                 VStack(alignment: .leading) {
-                    Text("Director")
-                        .foregroundColor(Color("lightGray"))
-                    Text(movie.director)
-                        .foregroundColor(Color("lightGray"))
+                    TitleDetailView(title: "Director", detail: movie.director)
                 }
                 VStack(alignment: .leading) {
-                    Text("Producer")
-                        .foregroundColor(Color("lightGray"))
-                    Text(movie.producer)
-                        .foregroundColor(Color("lightGray"))
+                    TitleDetailView(title: "Producer", detail: movie.producer)
                 }
                 Spacer()
             }

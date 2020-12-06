@@ -9,14 +9,21 @@
 import SwiftUI
 
 struct MovieListHeaderView: View {
+    let count: Int
+    
+    init(count: Int) {
+        self.count = count
+    }
+    
     var body: some View {
         VStack {
             Image("ic-star-wars")
             HStack {
-                Text("Total 6 Movies")
+                Text("Total \(count) Movies")
                     .foregroundColor(Color("lightGray"))
                     .multilineTextAlignment(.leading)
-                    .padding([.leading], 8)
+                    .padding(.all, 8)
+                    .font(Font.custom("Avenir", size: 15).weight(.regular))
                 Spacer()
             }
         }
@@ -26,6 +33,6 @@ struct MovieListHeaderView: View {
 
 struct MovieListHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListHeaderView()
+        MovieListHeaderView(count: 6)
     }
 }

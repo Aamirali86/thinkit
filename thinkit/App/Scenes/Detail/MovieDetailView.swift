@@ -33,14 +33,14 @@ struct MovieDetailView: View {
                 .padding([.leading, .trailing], 10)
                 
                 HStack(spacing: 24) {
-                    VStack(alignment: .leading) {
-                        Text("Created")
-                        Text(viewModel.created ?? "")
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Edited")
-                        Text(viewModel.edited ?? "")
-                    }
+                    TitleDetailView(title: "Created",
+                                    detail: viewModel.created ?? "",
+                                    titleStyle: .style(.dark, .font(13)),
+                                    descriptionStyle: .style(.dark, .font(14)))
+                    TitleDetailView(title: "Edited",
+                                    detail: viewModel.edited ?? "",
+                                    titleStyle: .style(.dark, .font(13)),
+                                    descriptionStyle: .style(.dark, .font(14)))
                     Spacer()
                 }
                 .padding([.leading, .trailing], 10)

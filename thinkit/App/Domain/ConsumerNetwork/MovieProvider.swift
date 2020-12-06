@@ -15,7 +15,7 @@ protocol MovieProviderType {
 }
 
 ////// A class encapsulating logic to provide content for movies
-class MovieProvider: MovieProviderType {
+final class MovieProvider: MovieProviderType {
     //MARK:- Properties
     
     typealias ResponseType = MovieResponse

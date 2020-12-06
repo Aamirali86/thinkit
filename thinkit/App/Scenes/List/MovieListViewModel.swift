@@ -10,14 +10,16 @@ import Foundation
 import Combine
 
 protocol MovieListViewModelType: ObservableObject {
-    var movies: [Movie] { get set }
+    var movies: [Movie] { get }
+    var count: Int { get }
     func fetchMovies()
 }
 
 final class MovieListViewModel: MovieListViewModelType {
     //MARK:- Properties
     
-    @Published var movies: [Movie] = []
+    @Published private(set) var movies: [Movie] = []
+    @Published var count: Int = 0
     private var subscriptions = Set<AnyCancellable>()
     private let service: MovieProviderType
     
@@ -39,6 +41,7 @@ final class MovieListViewModel: MovieListViewModelType {
                 }
             }, receiveValue: { [weak self] response in
                 self?.movies = response.results
+                self?.count = response.count
             })
             .store(in: &subscriptions)
     }

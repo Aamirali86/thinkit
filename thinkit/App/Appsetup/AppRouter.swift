@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class AppRouter {
+final class AppRouter {
     /// Start with initial view
     func start() -> some View {
         return MovieListBuilder().makeView()

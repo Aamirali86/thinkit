@@ -22,14 +22,15 @@ struct MovieListView<Model: MovieListViewModelType>: View {
     var body: some View {
         NavigationView {
             List {
-                MovieListHeaderView()
+                MovieListHeaderView(count: viewModel.count)
                     .listRowInsets(.init())
                 ForEach(viewModel.movies, id: \.id) { movie in
                     MovieListItemView(with: movie)
-                        .listRowInsets(.init())
                 }
+                .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
             }
             .navigationBarTitle("Think-it Star Wars", displayMode: .inline)
+            .background(Color("lightGray"))
         }
     }
 }

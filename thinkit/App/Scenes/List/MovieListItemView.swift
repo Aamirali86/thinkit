@@ -24,41 +24,28 @@ struct MovieListItemView: View {
             VStack(spacing: 12) {
                 HStack {
                     Text(movie.title)
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
+                        .font(Font.custom("Avinir", size: 24).weight(.regular))
                         .foregroundColor(Color("lightGray"))
                     Spacer()
-                    VStack(alignment: .leading) {
-                        Text("Release date")
-                            .foregroundColor(Color("lightGray"))
-                        Text(movie.releaseDate)
-                            .foregroundColor(Color("lightGray"))
-                    }
+                    TitleDetailView(title: "Release date", detail: movie.releaseDate)
                 }
                 HStack(spacing: 16) {
-                    VStack(alignment: .leading) {
-                        Text("Director")
-                            .foregroundColor(Color("lightGray"))
-                        Text(movie.director)
-                            .foregroundColor(Color("lightGray"))
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Producer")
-                            .foregroundColor(Color("lightGray"))
-                        Text(movie.producer)
-                            .foregroundColor(Color("lightGray"))
-                    }
+                    TitleDetailView(title: "Director", detail: movie.director)
+                    TitleDetailView(title: "Producer", detail: movie.producer)
                     Spacer()
                 }
                 HStack {
                     Text(movie.openingCrawl)
+                        .font(Font.custom("Avinir", size: 13).weight(.regular))
+                        .lineLimit(2)
                         .foregroundColor(Color("lightGray"))
                     Spacer()
                 }
             }
             .padding(EdgeInsets(top: 20, leading: 8, bottom: 20, trailing: 8))
         }
-        .background(Color("DarkBackground"))
+        .background(Color("DarkBackground")
+                    .shadow(color: .gray, radius: 4, x: 0, y: 0))
     }
 }
 
