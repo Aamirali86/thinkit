@@ -7,10 +7,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct MovieListView<Model: MovieListViewModelType>: View {
     @ObservedObject private var viewModel: Model
-
+    @State var isLoading = true
+    
     //MARK:- Init
     
     init(with viewModel: Model) {
@@ -21,17 +23,30 @@ struct MovieListView<Model: MovieListViewModelType>: View {
     
     var body: some View {
         NavigationView {
-            List {
-                MovieListHeaderView(count: viewModel.count)
-                    .listRowInsets(.init())
-                ForEach(viewModel.movies, id: \.id) { movie in
-                    MovieListItemView(with: movie)
+            if isLoading {
+                ActivityIndicator(isAnimating: $isLoading, style: .medium)
+            } else {
+                List {
+                    MovieListHeaderView(count: viewModel.count)
+                        .listRowInsets(.init())
+                    if isLoading {
+                    }
+                    ForEach(viewModel.movies, id: \.id) { movie in
+                        MovieListItemView(with: movie)
+                    }
+                    .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
                 }
-                .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
+                .navigationBarTitle("Think-it Star Wars", displayMode: .inline)
+                .background(Color("lightGray"))
             }
-            .navigationBarTitle("Think-it Star Wars", displayMode: .inline)
-            .background(Color("lightGray"))
         }
+        .onReceive(viewModel.isLoading) {
+            self.isLoading = $0
+        }
+    }
+    
+    var loader: some View {
+        ActivityIndicator(isAnimating: $isLoading, style: .medium)
     }
 }
 
