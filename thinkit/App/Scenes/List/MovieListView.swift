@@ -44,10 +44,6 @@ struct MovieListView<Model: MovieListViewModelType>: View {
             self.isLoading = $0
         }
     }
-    
-    var loader: some View {
-        ActivityIndicator(isAnimating: $isLoading, style: .medium)
-    }
 }
 
 struct MovieListView_Previews: PreviewProvider {
